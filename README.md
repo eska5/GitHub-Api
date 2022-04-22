@@ -11,7 +11,6 @@ To start this application, GitHub Authentication token will be needed. This toke
 ```
 10.   # Authorization token needed to proceed
 11.   header = {'Authorization': 'token %s' % "<PLACE FOR GITHUB AUTHENTICATION TOKEN>"}
-
 ```
 
 In order to start this application apiHandler.py has to be started.
