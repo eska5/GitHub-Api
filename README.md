@@ -8,8 +8,11 @@ My email in recruitment process : `kuba.sachajko@gmail.com`
 # GitHub Api
 To start this application, GitHub Authentication token will be needed. This token has to be passed exactly to backend.py in line 11 :
 
+```
 10.   # Authorization token needed to proceed
 11.   header = {'Authorization': 'token %s' % "<PLACE FOR GITHUB AUTHENTICATION TOKEN>"}
+12.
+```
 
 In order to start this application apiHandler.py has to be started.
 This application will start flask server hosted on `localhost:5000`.
@@ -21,12 +24,11 @@ Fields with pieces of information such as:
   - List of languages used in repositories {language name: bytes of code}
   - GitHub Login
   - GitHub Name
-2. On url: `localhost:5000/GitHubApi/Repositories/{user}`. Information in JSON format about GitHub user repositories will be provided.
+2. On url: `localhost:5000/GitHubApi/Repositories/{user}`. Information in JSON format about GitHub user repositories will be provided.__
 Fields with pieces of information such as:
   - GitHub Repository Name
   - List of languages used in repository {language name: bytes of code}
 
-```
 # REPOSITORIES JSON FORMAT:
 ```
 {
