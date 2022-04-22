@@ -11,19 +11,19 @@ class DataFromGithub:
     header = {'Authorization': 'token %s' % "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"}
 
     # Get user data form GitHub
-    def getUserDataFromGithub(self, user:str):
+    def getUserDataFromGithub(self, user: str):
         userDataRequestUrl = f"https://api.github.com/users/{user}"
         userData = requests.get(userDataRequestUrl, headers = self.header).json()
         return userData
 
     # Get repositories data form GitHub
-    def getRepositoriesDataFromGithub(self, userData:json):
+    def getRepositoriesDataFromGithub(self, userData: json):
         repositoriesDataRequestUrl = userData['repos_url']
         repositoriesData = requests.get(repositoriesDataRequestUrl, headers = self.header).json()
         return repositoriesData
 
     # Get languages data form GitHub
-    def getLanguagesDataFromGithub(self, repositoriesData:json):
+    def getLanguagesDataFromGithub(self, repositoriesData: json):
         languagesData = []
         for repositoryData in repositoriesData:
             languagesDataRequest = requests.get(repositoryData['languages_url'], headers = self.header).json()
@@ -32,7 +32,7 @@ class DataFromGithub:
 
 
 # Repositories data converted to JSON format
-def repositoriesDataMergeInJSON(repositoriesData:json, languagesData:list):
+def repositoriesDataMergeInJSON(repositoriesData: json, languagesData: list):
     combinedData = []
     for index in range(len(languagesData)):
         combinedData.append({
@@ -46,7 +46,7 @@ def repositoriesDataMergeInJSON(repositoriesData:json, languagesData:list):
     return json.loads(jsonDump)
 
 # User data Sum amount of bytes for each language
-def languagesSum(languagesData:list):
+def languagesSum(languagesData: list):
     languageDataList = []
     for index in range(len(languagesData)):
         languageDataList.append(
@@ -58,7 +58,7 @@ def languagesSum(languagesData:list):
     return json.dumps(languageDataDictionary)
 
 # User data converted to JSON format
-def userDataMergeInJSON(userData:json, languagesDictionary:str):
+def userDataMergeInJSON(userData: json, languagesDictionary: str):
     # string to list
     convertedlanguagesDictionary = json.loads(languagesDictionary)
     finalData = {
@@ -71,7 +71,7 @@ def userDataMergeInJSON(userData:json, languagesDictionary:str):
     return json.loads(jsonDump)
 
 # User data converted to JSON format without languages <EXCEPTION NO LANGUAGES>
-def userDataMergeInJSONException(userData:json):
+def userDataMergeInJSONException(userData: json):
     finalData = {
         "login" : userData['login'],
         "name" : userData['name'],
@@ -82,7 +82,7 @@ def userDataMergeInJSONException(userData:json):
     return json.loads(jsonDump)
 
 # main Function -> returns repositories data
-def returnRepositoriesData(user:str):
+def returnRepositoriesData(user: str):
     try:
         DataFromGithubObject = DataFromGithub()
         userData = DataFromGithub.getUserDataFromGithub(DataFromGithubObject,user)
@@ -93,7 +93,7 @@ def returnRepositoriesData(user:str):
         return "Username does not exist or username is invalid! Please check if the username is written correctly."
 
 # main Function -> returns user data
-def returnUserData(user:str):
+def returnUserData(user: str):
     # Check if user exists
     try:
         DataFromGithubObject = DataFromGithub()

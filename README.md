@@ -11,20 +11,20 @@ To start this application, GitHub Authentication token will be needed. This toke
 ```
 10.   # Authorization token needed to proceed
 11.   header = {'Authorization': 'token %s' % "<PLACE FOR GITHUB AUTHENTICATION TOKEN>"}
-12.
+
 ```
 
 In order to start this application apiHandler.py has to be started.
 This application will start flask server hosted on `localhost:5000`.
 
 When apiHandler.py is running two types of requests are available:
-1. On url: `localhost:5000/GitHubApi/User/{user}`. Information in JSON format about GitHub user will be provied.
+1. Url: `localhost:5000/GitHubApi/User/{user}`. Information in JSON format about GitHub user will be provied.
 Fields with pieces of information such as:
   - GitHub Bio
   - List of languages used in repositories {language name: bytes of code}
   - GitHub Login
   - GitHub Name
-2. On url: `localhost:5000/GitHubApi/Repositories/{user}`. Information in JSON format about GitHub user repositories will be provided.__
+2. Url: `localhost:5000/GitHubApi/Repositories/{user}`. Information in JSON format about GitHub user repositories will be provided.__
 Fields with pieces of information such as:
   - GitHub Repository Name
   - List of languages used in repository {language name: bytes of code}
@@ -68,4 +68,3 @@ Fields with pieces of information such as:
 # Error Handling
 Server should respond if given username does not exist or if there is a typing error.
 In user querry there was an error when there were no repositories, but account was present. If this error is present field languages will return `null`.
-Server runs in debug mode just to format the data.
