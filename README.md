@@ -1,9 +1,4 @@
-# allegro-summer-experience-2022
-
 My email in recruitment process : `kuba.sachajko@gmail.com`
-
---
-# Task Number 3 - Creating Software API
 
 # GitHub Api
 To start this application, GitHub Authentication token will be needed. This token has to be passed exactly to backend.py in line 11 :
